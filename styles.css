@@ -53,12 +53,6 @@ body {
     justify-content: space-around;
 }
 
-.proof h1 {
-    display: block;
-    text-align: center;
-    font-size: 30px;
-}
-
 .proof img {
     width: calc(25% - 10px);
     margin: 10px;

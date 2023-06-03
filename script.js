@@ -3,14 +3,14 @@ const slidesData = [
       header: "Why you should hire Rui",
       subtitle : "A Real Job Resume",
       credits: "Click right arrow or just click screen to go to next slide",
-      image: "/assets/dead.png",
+      image: "dead.png",
       clicks: 1
     },
     { 
       header: "Reason One",
       subtitle : "",
       credits: "This is Nikolai. Nikolai says Hi.",
-      image: "/assets/nikolai.jpeg",
+      image: "nikolai.jpeg",
       clicks: 2,
       excess: "Nikolai is named after some random ass Russian author and if you like Nikolai, you gain interest in literature. And Rui like Nikolai. So she has literature skills?? (totally not bs). In addition, Nikolai is hot and that means she has good taste in people which means she is trustworthy. (Trust, trust)"
     },
@@ -25,102 +25,161 @@ const slidesData = [
       header: "Reason Tree",
       subtitle : "Rui is oldsexual",
       credits: "Oldsexuality is a sexuality whereby you are attracted to older men. Rui is oldsexual and technically speaking, would be part of the LGTV+ community. Rui is someone who is inclusive and does not care what your sexuality is because she is lgtbwq32d herself :D",
-      image: "/assets/oldsexual.jpeg",
-      clicks: 1
-    },
-    {
+      image: "oldsexual.jpeg",
       clicks: 1
     },
     {
       header: "Treason Foure",
       credits: "Most people she likes are DEAD. So like this means she can emphatise with people who died and uh she got good emotional intelligence!!!!",
-      excess: 
-        <ul>
-          <li>Odasaku</li>
-          <li>Connor</li>
-          <li>Fukuzawa</li>
-          <li>hopefully more to come..</li>
-        </ul>,
+      excess: "Odasaku, Fukuzawa, Connor..",
       clicks: 2,
-      image: "/assets/dead.jpeg"
+      image: "dead.jpeg"
     }, 
     {
       header: "Bonus Point!!",
       credits: "Because she has seen people die before, that means she definitely has managed to grief well and has very good emotional strength (totally not sarcastic)",
       clicks: 1,
-      image: "/assets/emotion.png"
+      image: "emotion.png"
     },
     {
       header: "REQWASON FWIVKE", 
       subtitle : "Dear Connor Murphy..", 
       credits: "Rui has read Dear Evan Hansen but more importantly, she uh knows the lyrics to Sincerely Me. Tis very important skill in life since Sincerely Me teaches Rui how to write emails in the proper format 'Dear Evan Hansen...Sincerely, Me' and this song also has very uh educational lines such as 'The only man that I love is my dad.'.",
-      image: "/assets/sincerely.jpeg",
+      image: "sincerely.jpeg",
       clicks: 1
     }, 
     {
       header: "PWOSBBIEL JOBS SHE CANS APPLY FOUR",
       subtitle : "Sketch Artist",
       credits: "Rui is good at art i mean like idk what else to say. She just good at art and others have skill issue. She has W skill and we dont so we better cope with this. She does not give herself enough credit cuz of humility but we should all reemmber she good :DDD",
-      image: "/assets/sketch.jpeg",
+      image: "sketch.jpeg",
       clicks : 1
     },
     {
       subtitle : "Best Friend",
       credits: "She is just too pro at being a good friend who is there is to be very thoughtful and just be very COOL and chill and this job is very cool and whoever is her best friend is a lucky one :)",
-      image: "/assets/friends.png",
+      image: "friends.png",
       clicks : 1
     },
     {
       subtitle : "Wingman (maybe)",
       credits: "Actually nvm this one you will probably have to become her wingman if she sees a middle aged man due to her oldsexuality. ",
       clicks : 1,
-      image: "/assets/friends.jpeg",
+      image: "friends.jpeg",
       excess: "just realised how god awful my rectangular glasses were- whoops going off topic."
     },
     {
       header: "Conclusion",
       credits: "Hire Rui for a job because she definitely has the qualifications to do a job. If she does not get a job, that's a missed opportunity!!!! (there's still other slides)",
       clicks: 1,
-      image: "/assets/elise.jpeg"
+      image: "elise.jpeg"
     }, 
     {
       header: "On A Serious Note",
       clicks: 1,
-      image: "/assets/deaths.png"
+      image: "deaths.png"
     },
     {
       header: "On An ACTUAL Serious Note",
       credits: "Happy Birthday Rui (aka my number zero best friend)! Thanks for being my friend! I know that we may not hang out as much but that's okay :) In a few years, we may or may not go our seperate ways but hey, I am glad we currently have been friends for 6 years. In the future, you do you, and I do me (unless we get an apartment together then like yah that's literally being stuck together lmao but then again our jobs may not pay that much). Whatever, the future is the future. Now is the present. Now is your birthday!! WOW!!! This is very important! And significant! Just like Fukuzawa's death! Or Odasaku's Death to Dazai! Or Connor's Death to Evan! Or that Random Riff guy you were talking about!! He died right? Yah he did. Oh well. Thanks for being someone who I can just talk to about shit and sorry (not sorry) for all my dead jokes. Stay fresh, stay artistic and stay oldsexual my friend. Dude, I am proud of you, just keep pushing through. Our friendship goes beyond your average kind of bond! All you gotta do is just believe you can be who you want to be. Sincerely, Me.",
       clicks: 1,
-      image: "/assets/deadman.jpeg"
+      image: "deadman.jpeg"
     }
 ];
-const proof = ["/assets/oldsexual2.jpeg", "/src/assets/oldsexual3.jpeg", "/src/assets/oldsexual4.jpeg", "/src/assets/oldsexual5.jpeg"]; 
-let currentClicks, slide = 0;
+const proof = ["oldsexual2.jpeg", "/srcoldsexual3.jpeg", "/srcoldsexual4.jpeg", "/srcoldsexual5.jpeg"]; 
+let slide = 0;
+let currentClicks = 0;
 function nextSlide() {
-    if (currentClicks < slidesData[slide].clicks) {
+    console.log(slidesData[slide].clicks);
+    if (currentClicks < slidesData[slide].clicks && slide != slidesData.length-1) {
         currentClicks++;
-        if (currentClicks == slidesData[slide].clicks) {
+        if (currentClicks == slidesData[slide].clicks && slide != slidesData.length-1) {
             slide++;
             currentClicks = 0;
-            document.getElementById("header").innerHTML = slidesData[slide].header;
-            document.getElementById("subtitle").innerHTML = slidesData[slide].subtitle;
-            document.getElementById("credits").innerHTML = slidesData[slide].credits;
-            document.getElementById("image").src = slidesData[slide].image;
+            console.log(slide);
+            if (slidesData[slide].header != undefined) {
+                document.getElementById("header").innerHTML = slidesData[slide].header;
+            } else {
+                document.getElementById("header").innerHTML = "";
+            }
+            if (slidesData[slide].subtitle != undefined) {
+                document.getElementById("subtitle").innerHTML = slidesData[slide].subtitle;
+            } else {
+                document.getElementById("subtitle").innerHTML = "";
+            }
+            if (slidesData[slide].credits != undefined) {
+                document.getElementById("credits").innerHTML = slidesData[slide].credits;
+            } else {
+                document.getElementById("credits").innerHTML = "";
+            }
+            if (slidesData[slide].image != undefined) {
+                document.getElementById("image").src = slidesData[slide].image;
+            }
+            if (slidesData[slide].excess != undefined && currentClicks == 1) {
+                document.getElementById("excess").innerHTML = slidesData[slide].excess;
+            } else {
+                document.getElementById("excess").innerHTML = "";
+            }
+        } else {
+            if (slidesData[slide].excess != undefined) {
+                document.getElementById("excess").innerHTML = slidesData[slide].excess;
+            } else {
+                document.getElementById("excess").innerHTML = "";
+            }
         }
+    }
+    if (slide == 1 && currentClicks == 0) {
+        document.getElementById("sound").play();
+    }
+    if (slide == 0 || slide == slidesData.length-2) {
+        document.getElementById("image").className = "spin";
+    } else {
+        document.getElementById("image").className = "";
+    }
+    if (slide == slidesData.length-1) {
+        document.getElementById("sound2").play();
     }
 }
 function reverseSlide() {
     currentClicks = 0;
     slide--;
-    document.getElementById("header").innerHTML = slidesData[slide].header;
-    document.getElementById("subtitle").innerHTML = slidesData[slide].subtitle;
-    document.getElementById("credits").innerHTML = slidesData[slide].credits;
-    document.getElementById("image").src = slidesData[slide].image;
+    if (slide == 0 || slide == slidesData.length-2) {
+        document.getElementById("image").className = "spin";
+    } else {
+        document.getElementById("image").className = "";
+    }
+    if (slide == 1 && currentClicks == 0) {
+        document.getElementById("sound").play();
+    }
+            if (slidesData[slide].header != undefined) {
+                document.getElementById("header").innerHTML = slidesData[slide].header;
+            } else {
+                document.getElementById("header").innerHTML = "";
+            }
+            if (slidesData[slide].subtitle != undefined) {
+                document.getElementById("subtitle").innerHTML = slidesData[slide].subtitle;
+            } else {
+                document.getElementById("subtitle").innerHTML = "";
+            }
+            if (slidesData[slide].credits != undefined) {
+                document.getElementById("credits").innerHTML = slidesData[slide].credits;
+            } else {
+                document.getElementById("credits").innerHTML = "";
+            }
+            if (slidesData[slide].image != undefined) {
+                document.getElementById("image").src = slidesData[slide].image;
+            }
+            if (slidesData[slide].excess != undefined && currentClicks == 1) {
+                document.getElementById("excess").innerHTML = slidesData[slide].excess;
+            } else {
+                document.getElementById("excess").innerHTML = "";
+            }
 }
 document.addEventListener('click', nextSlide);
 document.addEventListener('keydown', function(event) {
+    console.log(event.key);
     if (event.key === 'ArrowRight') {
+        console.log("yes");
         nextSlide();
     } else if (event.key === 'ArrowLeft') {
         reverseSlide();
